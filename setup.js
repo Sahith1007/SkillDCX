@@ -28,7 +28,7 @@ SkillDCX allows institutions to issue tamper-proof certificates, students to sto
 
 ## Features
 - Blockchain-based, tamper-proof certificates
-- Issuer, Student, and Verifier roles
+- Issuer and student roles
 - IPFS for decentralized file storage
 - Open-source and extendable
   `,
