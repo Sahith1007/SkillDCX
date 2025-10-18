@@ -5,6 +5,11 @@ PINATA_API_KEY = "ea4c8fdad5bc8f231e49"
 PINATA_SECRET_API_KEY = "f24a66e6ea330adb4df4b6fd7c6b839e92e89cdd362260202b76f74762a0d386"
 
 def upload_to_ipfs(data: dict) -> str:
+     """Uploads a JSON-serializable dictionary to IPFS via Pinata and returns the resulting hash.
+    Parameters:
+        - data (dict): The JSON content to pin to IPFS.
+    Returns:
+        - str: The IPFS hash identifying the pinned JSON content."""
     url = "https://api.pinata.cloud/pinning/pinJSONToIPFS"
     headers = {
         "pinata_api_key": PINATA_API_KEY,
