@@ -8,25 +8,28 @@ router = APIRouter()
 
 certificates_db: Dict[str, dict] = {}
 
+
 class CertificateRequest(BaseModel):
     student_id: str
     course: str
     grade: str
 
+
 @router.post("/issue")
 def issue_certificate(
-    data: CertificateRequest, 
-    current_user: dict = Depends(get_current_user)
+    data: CertificateRequest, current_user: dict = Depends(get_current_user)
 ):
     if current_user["role"] != "issuer":
-        raise HTTPException(status_code=403, detail="Only issuers can issue certificates")
+        raise HTTPException(
+            status_code=403, detail="Only issuers can issue certificates"
+        )
 
-    cert_id = f"cert_{len(certificates_db)+1}"
+    cert_id = f"cert_{len(certificates_db) + 1}"
     cert_data = {
         "id": cert_id,
         "student_id": data.student_id,
         "course": data.course,
-        "grade": data.grade
+        "grade": data.grade,
     }
 
     # Upload to IPFS
@@ -35,16 +38,19 @@ def issue_certificate(
     certificates_db[cert_id] = {**cert_data, "ipfs_hash": ipfs_hash}
 
     return {"status": "success", "ipfs_hash": ipfs_hash}
+
+
 @router.get("")
 def get_certificates():
     return list(certificates_db.values())
 
+
 certificates_db = [
     {"id": 1, "name": "Blockchain Basics", "issuer": "SkillDCX University"},
-    {"id": 2, "name": "Advanced AI", "issuer": "SkillDCX Labs"}
+    {"id": 2, "name": "Advanced AI", "issuer": "SkillDCX Labs"},
 ]
+
 
 @router.get("/certificates")
 async def list_certificates():
     return certificates_db
-

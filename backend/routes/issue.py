@@ -1,5 +1,6 @@
 from fastapi import APIRouter, HTTPException
-import os, requests
+import os
+import requests
 from dotenv import load_dotenv
 
 load_dotenv()
@@ -8,6 +9,7 @@ router = APIRouter()
 
 PINATA_API_KEY = os.getenv("PINATA_API_KEY")
 PINATA_API_SECRET = os.getenv("PINATA_API_SECRET")
+
 
 @router.post("/certificate")
 def issue_certificate_to_ipfs(data: dict):
@@ -22,7 +24,7 @@ def issue_certificate_to_ipfs(data: dict):
     headers = {
         "pinata_api_key": PINATA_API_KEY,
         "pinata_secret_api_key": PINATA_API_SECRET,
-        "Content-Type": "application/json"
+        "Content-Type": "application/json",
     }
 
     res = requests.post(url, headers=headers, json=data)

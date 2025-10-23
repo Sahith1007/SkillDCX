@@ -1,10 +1,10 @@
 from fastapi import APIRouter, HTTPException
 import requests
-import os
 
 router = APIRouter()
 
 PINATA_GATEWAY = "https://gateway.pinata.cloud/ipfs"
+
 
 @router.get("/certificate/{ipfs_hash}")
 def verify_certificate(ipfs_hash: str):
