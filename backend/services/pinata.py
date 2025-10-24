@@ -8,7 +8,7 @@ PINATA_SECRET_API_KEY = (
 
 
 def upload_to_ipfs(data: dict) -> str:
-     """Uploads a JSON-serializable dictionary to IPFS via Pinata and returns the resulting hash.
+    """Uploads a JSON-serializable dictionary to IPFS via Pinata and returns the resulting hash.
     Parameters:
         - data (dict): The JSON content to pin to IPFS.
     Returns:
