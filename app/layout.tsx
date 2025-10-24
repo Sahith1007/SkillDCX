@@ -5,6 +5,7 @@ import { GeistMono } from "geist/font/mono"
 import "./globals.css"
 import { ThemeProvider } from "@/components/theme-provider"
 import { WalletProvider } from "@/contexts/wallet-context"
+import { Toaster } from "@/components/ui/toaster"
 
 export const metadata: Metadata = {
   title: "SkillDCX - Blockchain Certificate Platform",
@@ -19,9 +20,12 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-  <body className="dark font-sans" style={{ colorScheme: "dark" }}>
+  <body className="dark font-sans">
     <ThemeProvider attribute="class" defaultTheme="dark" enableSystem>
-      <WalletProvider>{children}</WalletProvider>
+      <WalletProvider>
+        {children}
+        <Toaster />
+      </WalletProvider>
     </ThemeProvider>
   </body>
 </html>

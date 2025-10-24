@@ -3,15 +3,17 @@
 import Link from "next/link"
 import { usePathname } from "next/navigation"
 import { cn } from "@/lib/utils"
-import { Home, Award, FileText, Shield, User } from "lucide-react"
+import { Home, Award, FileText, Shield, User, Bot } from "lucide-react"
 import { motion } from "framer-motion"
 import { useWallet } from "@/contexts/wallet-context"
+import { ConnectWalletButton } from "@/components/ConnectWalletButton"
 
 const navigation = [
   { name: "Home", href: "/", icon: Home },
-  { name: "My Certificates", href: "/certificates", icon: Award },
+  { name: "My Certificates", href: "/my-certificates", icon: Award },
   { name: "Issue Certificate", href: "/issue", icon: FileText, requiresIssuer: true },
   { name: "Verify", href: "/verify", icon: Shield },
+  { name: "AI Mentor", href: "/ai-mentor", icon: Bot },
   { name: "Profile", href: "/profile", icon: User },
 ]
 
@@ -73,15 +75,9 @@ export function TopNav() {
           })}
         </nav>
 
-        {/* Right side: wallet badge (optional visual only) */}
+        {/* Right side: Connect Wallet Button */}
         <div className="flex items-center">
-          {isConnected && address ? (
-            <span className="text-xs md:text-sm rounded-full px-3 py-1 bg-gradient-to-r from-blue-500/15 to-purple-500/15 border border-blue-500/30 text-blue-200">
-              {address}
-            </span>
-          ) : (
-            <span className="text-xs md:text-sm text-muted-foreground">Not connected</span>
-          )}
+          <ConnectWalletButton />
         </div>
       </header>
 
