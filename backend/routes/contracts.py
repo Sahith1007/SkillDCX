@@ -20,15 +20,19 @@ ALGOD_TOKEN = ""
 algod_client = algod.AlgodClient(ALGOD_TOKEN, ALGOD_ADDRESS)
 
 # Load deployed contract info
-CONTRACTS_FILE = "../contracts/deployed_contracts.json"
+# Path: backend/routes/contracts.py -> backend/routes -> backend -> SkillDCX -> contracts/
+CONTRACTS_FILE = os.path.join(os.path.dirname(os.path.dirname(os.path.dirname(__file__))), "contracts", "deployed_contracts.json")
 deployed_contracts = {}
 
 try:
     if os.path.exists(CONTRACTS_FILE):
         with open(CONTRACTS_FILE, 'r') as f:
             deployed_contracts = json.load(f)
+        logger.info(f"Loaded deployed contracts from {CONTRACTS_FILE}: {deployed_contracts}")
+    else:
+        logger.warning(f"Deployed contracts file not found at: {CONTRACTS_FILE}")
 except Exception as e:
-    logger.warning(f"Could not load deployed contracts: {e}")
+    logger.warning(f"Could not load deployed contracts from {CONTRACTS_FILE}: {e}")
 
 # Models
 class CertificateIssueRequest(BaseModel):
@@ -317,6 +321,8 @@ async def get_contract_info():
     """
     return {
         "deployed_contracts": deployed_contracts,
+        "contracts_file_path": CONTRACTS_FILE,
+        "contracts_file_exists": os.path.exists(CONTRACTS_FILE),
         "testnet_explorer": {
             "base_url": "https://testnet.algoexplorer.io/application/",
             "certification_contract": f"https://testnet.algoexplorer.io/application/{deployed_contracts.get('certification_app_id', 0)}",

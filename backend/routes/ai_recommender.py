@@ -81,6 +81,25 @@ GRAPH: Dict[str, List[Dict[str, str]]] = {
         {"skill": "uvicorn", "reason": "ASGI server tuning and deployment"},
         {"skill": "pydantic", "reason": "Robust validation and settings management"},
     ],
+    "javascript": [
+        {"skill": "typescript", "reason": "Add type safety to JavaScript projects"},
+        {"skill": "react", "reason": "Build interactive UIs with modern JavaScript"},
+        {"skill": "node.js", "reason": "Server-side JavaScript development"},
+    ],
+    "typescript": [
+        {"skill": "next.js", "reason": "Type-safe full-stack React framework"},
+        {"skill": "react", "reason": "Build type-safe React applications"},
+    ],
+    "web3": [
+        {"skill": "solidity", "reason": "Write smart contracts for Web3 apps"},
+        {"skill": "blockchain", "reason": "Understand decentralized systems"},
+        {"skill": "react", "reason": "Build Web3 frontends with React"},
+    ],
+    "data science": [
+        {"skill": "machine learning", "reason": "Build predictive models from data"},
+        {"skill": "python", "reason": "Primary language for data science"},
+        {"skill": "sql", "reason": "Query and analyze structured data"},
+    ],
 }
 
 KNOWN_SKILLS: Set[str] = set(GRAPH.keys()) | {
@@ -245,6 +264,114 @@ COURSE_RECOMMENDATIONS: Dict[str, List[Dict[str, str]]] = {
             "description": "Learn Apache Spark and PySpark for big data processing and analytics",
             "url": "https://www.udemy.com/course/spark-and-python-for-big-data-with-pyspark/"
         }
+    ],
+    "javascript": [
+        {
+            "title": "The Complete JavaScript Course",
+            "provider": "Udemy",
+            "instructor": "Jonas Schmedtmann",
+            "level": "Beginner to Advanced",
+            "description": "Modern JavaScript from scratch to advanced ES6+ features",
+            "url": "https://www.udemy.com/course/the-complete-javascript-course/"
+        },
+        {
+            "title": "JavaScript Algorithms and Data Structures",
+            "provider": "Coursera",
+            "instructor": "University of California San Diego",
+            "level": "Intermediate",
+            "description": "Master algorithms and data structures using JavaScript",
+            "url": "https://www.coursera.org/specializations/data-structures-algorithms"
+        }
+    ],
+    "typescript": [
+        {
+            "title": "Understanding TypeScript",
+            "provider": "Udemy",
+            "instructor": "Maximilian Schwarzmüller",
+            "level": "Beginner to Advanced",
+            "description": "Master TypeScript and build better JavaScript applications",
+            "url": "https://www.udemy.com/course/understanding-typescript/"
+        },
+        {
+            "title": "TypeScript for Professionals",
+            "provider": "Udemy",
+            "instructor": "Basarat Ali Syed",
+            "level": "Intermediate to Advanced",
+            "description": "Advanced TypeScript patterns and best practices",
+            "url": "https://www.udemy.com/course/typescript-for-professionals/"
+        }
+    ],
+    "next.js": [
+        {
+            "title": "Next.js & React - The Complete Guide",
+            "provider": "Udemy",
+            "instructor": "Maximilian Schwarzmüller",
+            "level": "Intermediate",
+            "description": "Build fullstack React apps with Next.js 14+ including App Router",
+            "url": "https://www.udemy.com/course/nextjs-react-the-complete-guide/"
+        },
+        {
+            "title": "Complete Next.js Developer",
+            "provider": "Udemy",
+            "instructor": "Andrei Neagoie",
+            "level": "Intermediate to Advanced",
+            "description": "Master Next.js with SSR, SSG, and API routes",
+            "url": "https://www.udemy.com/course/complete-nextjs-developer/"
+        }
+    ],
+    "blockchain": [
+        {
+            "title": "Blockchain Fundamentals",
+            "provider": "Coursera",
+            "instructor": "University at Buffalo",
+            "level": "Beginner",
+            "description": "Introduction to blockchain technology and cryptocurrencies",
+            "url": "https://www.coursera.org/learn/blockchain-basics"
+        },
+        {
+            "title": "Blockchain A-Z: Build a Blockchain",
+            "provider": "Udemy",
+            "instructor": "Hadelin de Ponteves",
+            "level": "Intermediate",
+            "description": "Build your own blockchain and cryptocurrency from scratch",
+            "url": "https://www.udemy.com/course/build-your-blockchain-az/"
+        }
+    ],
+    "fastapi": [
+        {
+            "title": "FastAPI - The Complete Course",
+            "provider": "Udemy",
+            "instructor": "Sanjeev Thiyagarajan",
+            "level": "Beginner to Intermediate",
+            "description": "Build modern APIs with FastAPI and Python",
+            "url": "https://www.udemy.com/course/fastapi-the-complete-course/"
+        },
+        {
+            "title": "Complete FastAPI Masterclass",
+            "provider": "Udemy",
+            "instructor": "Jose Salvatierra",
+            "level": "Intermediate to Advanced",
+            "description": "Advanced FastAPI patterns with async, testing, and deployment",
+            "url": "https://www.udemy.com/course/fastapi-masterclass/"
+        }
+    ],
+    "sql": [
+        {
+            "title": "The Complete SQL Bootcamp",
+            "provider": "Udemy",
+            "instructor": "Jose Marcial Portilla",
+            "level": "Beginner to Intermediate",
+            "description": "Master SQL queries, database design, and PostgreSQL",
+            "url": "https://www.udemy.com/course/the-complete-sql-bootcamp/"
+        },
+        {
+            "title": "Advanced SQL for Data Scientists",
+            "provider": "Coursera",
+            "instructor": "University of Colorado",
+            "level": "Advanced",
+            "description": "Complex queries, window functions, and query optimization",
+            "url": "https://www.coursera.org/learn/sql-data-science"
+        }
     ]
 }
 
@@ -373,7 +500,7 @@ def _get_course_recommendations(skills: List[str]) -> List[Dict]:
         -x.get("skill_score", 0)
     ))
     
-    return unique_courses[:3]  # Return top 3 recommendations
+    return unique_courses[:10]  # Return top 10 recommendations
 
 
 @router.post("/mentor")
