@@ -2,7 +2,7 @@ from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 # Local routers
-from routes import certificates, verify, ai_recommender
+from routes import certificates, verify, ai_recommender, wallet, contracts
 
 app = FastAPI()
 
@@ -19,6 +19,8 @@ app.add_middleware(
 app.include_router(certificates.router, prefix="/certificates", tags=["certificates"])
 app.include_router(verify.router, prefix="/verify", tags=["verify"])
 app.include_router(ai_recommender.router)  # mounted at /ai
+app.include_router(wallet.router)  # mounted at /wallet
+app.include_router(contracts.router)  # mounted at /contracts
 
 
 @app.get("/")
