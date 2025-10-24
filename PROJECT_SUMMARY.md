@@ -108,7 +108,7 @@ copy .env.example .env.local
 
 # 4. Deploy smart contracts (get TestNet ALGO first!)
 cd ../contracts
-python deploy_contracts.py --mnemonic "your 25 words..."
+python deploy_contracts.py --mnemonic "your 24 words..."
 copy deployed_contracts.json ../backend/
 
 # 5. Start the application

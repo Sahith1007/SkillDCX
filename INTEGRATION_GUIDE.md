@@ -117,7 +117,7 @@ cd contracts
 # Create account and fund it with TestNet ALGO
 
 # Deploy contracts
-python deploy_contracts.py --mnemonic "your 25 word mnemonic phrase here"
+python deploy_contracts.py --mnemonic "your 24 word mnemonic phrase here"
 
 # Copy deployed contract info to backend
 cp deployed_contracts.json ../backend/

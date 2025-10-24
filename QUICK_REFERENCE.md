@@ -47,7 +47,7 @@ cd contracts
 # Get TestNet ALGO first from faucet!
 
 # Deploy
-python deploy_contracts.py --mnemonic "your 25 words..."
+python deploy_contracts.py --mnemonic "your 24 words..."
 
 # Copy to backend
 copy deployed_contracts.json ..\backend\

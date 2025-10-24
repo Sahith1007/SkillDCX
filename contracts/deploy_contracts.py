@@ -5,10 +5,10 @@ This script deploys both the Issuer Registry and Certification contracts
 to Algorand TestNet and saves the deployed app IDs.
 
 Usage:
-    python deploy_contracts.py --mnemonic "your 25 word mnemonic"
+    python deploy_contracts.py --mnemonic "your 24 word mnemonic"
     
 Or set environment variable:
-    DEPLOYER_MNEMONIC="your 25 word mnemonic" python deploy_contracts.py
+    DEPLOYER_MNEMONIC="your 24 word mnemonic" python deploy_contracts.py
 """
 
 import os
@@ -237,7 +237,7 @@ def main():
     parser.add_argument(
         '--mnemonic',
         type=str,
-        help='25-word mnemonic phrase for deployer account',
+        help='24-word mnemonic phrase for deployer account',
         default=os.environ.get('DEPLOYER_MNEMONIC')
     )
     
@@ -246,8 +246,8 @@ def main():
     if not args.mnemonic:
         print("Error: Deployer mnemonic required!")
         print("\nProvide via:")
-        print("  1. Command line: --mnemonic \"your 25 words...\"")
-        print("  2. Environment: DEPLOYER_MNEMONIC=\"your 25 words...\"")
+        print("  1. Command line: --mnemonic \"your 24 words...\"")
+        print("  2. Environment: DEPLOYER_MNEMONIC=\"your 24 words...\"")
         print("\nTo create a new TestNet account:")
         print("  1. Visit: https://bank.testnet.algorand.network/")
         print("  2. Click 'Create Account'")
