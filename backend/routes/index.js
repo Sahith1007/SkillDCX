@@ -11,6 +11,7 @@ import {
   manuallyVerifyCertificate,
   getInstantVerificationPricing
 } from "../controllers/verificationController.js";
+import uploadRoutes from "./upload.js";
 
 const router = express.Router();
 
@@ -27,5 +28,8 @@ router.post("/verification/request", requestCertificateMinting);
 router.get("/verification/queue/:cert_id?", getQueueStatus);
 router.post("/verification/manual", manuallyVerifyCertificate);
 router.get("/verification/pricing", getInstantVerificationPricing);
+
+// Upload & Mint routes (AI verification + IPFS + NFT minting)
+router.use("/upload", uploadRoutes);
 
 export default router;
