@@ -1,0 +1,20 @@
+{
+  "issuer_registry_app_id": 0,
+  "issuer_registry_address": "",
+  "certification_app_id": 0,
+  "certification_address": "",
+  "network": "TestNet",
+  "algod_address": "https://testnet-api.algonode.cloud",
+  "deployer_address": "HNTEOSL5NPTVES7GWQ3TXE3FFCTNT337H7ZNEIBO2EAYMZWKN2ZGUL742Q",
+  "note": "Unified certificate contract with integrated verification layers",
+  "unified_certificate_app_id": 748842503,
+  "unified_certificate_address": "app_748842503",
+  "contract_version": "1.0.0",
+  "features": [
+    "3-layer verification",
+    "Issuer registry",
+    "AI verification",
+    "IPFS verification",
+    "NFT minting"
+  ]
+}
