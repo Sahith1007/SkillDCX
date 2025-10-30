@@ -1,0 +1,15 @@
+ALGORAND TEST ACCOUNT
+======================================================================
+Generated: HNTEOSL5NPTVES7GWQ3TXE3FFCTNT337H7ZNEIBO2EAYMZWKN2ZGUL742Q
+
+Address:
+HNTEOSL5NPTVES7GWQ3TXE3FFCTNT337H7ZNEIBO2EAYMZWKN2ZGUL742Q
+
+Mnemonic:
+predict oyster river kitchen bubble mango guilt drama bleak wall palace menu gather comic entire curious canvas payment album noodle client dream soda absent jazz
+
+Private Key:
+TZ2ndbGnjhz2LEK8qH0+szgwuXDpNQ1p6AtgaRUKxbk7ZkdJfWvnUkvmtDc7k2Uoptnvfz/y0iAu0QGGZspusg==
+
+======================================================================
+SECURITY WARNING: Keep this file secure and delete after use!
