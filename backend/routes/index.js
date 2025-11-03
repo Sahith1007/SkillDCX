@@ -1,5 +1,5 @@
 import express from "express";
-import { simpleAIResponse } from "../controllers/aiController.js";
+import { simpleAIResponse } from "../controllers/aiControllers.js";
 import { 
   mintCertificateNFT, 
   getCertificateInfo, 
