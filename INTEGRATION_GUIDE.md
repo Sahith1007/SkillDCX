@@ -509,5 +509,3 @@ For issues or questions:
 - Review Algorand developer forums
 
 ---
-
-**Built with ❤️ using Algorand, React, and FastAPI**
